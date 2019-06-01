@@ -53,7 +53,7 @@ class Pelicula {
     voteAverage = json['vote_average'] / 1;
     title = json['title'];
     popularity = json['popularity'] / 1;
-    posterPath = json['posterPath'];
+    posterPath = json['poster_path'];
     originalLanguage = json['original_language'];
     originalTitle = json['original_title'];
     genreIds = json['genre_ids'].cast<int>();
@@ -61,5 +61,13 @@ class Pelicula {
     adult = json['adult'];
     overview = json['overview'];
     releaseDate = json['release_date'];
+  }
+
+  getPosterImg() {
+    if (posterPath == null) {
+      return 'http://www.confidentonline.com/uploads/1921562513no%20image.jpg';
+    } else {
+      return 'https://image.tmdb.org/t/p/w500/$posterPath';
+    }
   }
 }
